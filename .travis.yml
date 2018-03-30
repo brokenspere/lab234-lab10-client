@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-- "8.4.0"
+- 8.4.0
 sudo: required
 cache:
   directories:
-    - node_modules
+  - node_modules
 before_install:
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - npm i -D uglifyjs-webpack-plugin
@@ -12,8 +12,11 @@ install:
 - npm install
 - npm run ng-deploy
 - ls -l
-script: 
+script:
 - docker build -t $DOCKER_USERNAME/se234-lab10-client .
 - docker push $DOCKER_USERNAME/se234-lab10-client
-
 service: docker
+env:
+  global:
+  - secure: uF5Cc/cybJ2/ED7fdhxJUduLe8u27x/LHEFT2cIeEgPKGKjw6V9J5i3rLPozN3v/l6I7JZnrNIc8nBUy7K4LnaJgaErhayH26y0krfiSQdsA6RWvQ5z/oRQfgKdIsjg9WY8sORA0mVAXIj44VocM1Pp9pWYC9dDIWbd6HS1oJV+oDbF5mS8pNnSxuYxJA943sOpr2ymUsN69lGJn4g2BJAS9Vkbl0dLUJ0UuAyfIijZvHLdqwUJCvHvmiipfTTwPcwNLuPYVSLxCeRslwg2b4XCIr5U18l6Ju2V8y+No+kIJos+kzFt+s1czNCOA9wUTuPh2fWC4/mpPMGjFMTZjCODy/5St0U9xuMFq/e5H+Xc98XOdQ1meq1yHsiaZ9V+XOxGEjxEQtbXn2g3BE03l3+fY2RAVYK9Sw1xSzcaruIT/q0zbLMEbFN3tz1tXrI//3pVxq0CgfcdAwgSv4tlmZ79vZna8gJALpnJCZwf6ctI0R1f0kmWK0+57lEWHY5IcjzMopF+M98CiVl6UsQ5++cuBwxtTrF6iEzAUaFYQUUvznIfMZRpAQt2OLWC+zktsk/gR76Qfz/gC9HIBfrShZvi3l9q0MxXsTkPcsel1tUgui103FgoJyrTKORyrw0+ZxHTn9dsgVaGv2MiK2FvrxpjeT2+dJniFSHwgu9TXIZM=
+  - secure: ZdqxBjf+VNJPfyqX9Hpb6iAYG+91WQB87Y3yNve7VnG4Z52gyTamKQyOuRZANi7vZfhn3OqRshTQujjQ/gjc7sQ7jBFsJQdY26yLyjdVmIRT7QnUN+nVl6n/IHhjZvNwirf3SnWdrUmp7RTKTjQxu67xoMr/qesztG052lmgSBhDuV1kxOvPjtkrScuCCFEvgJ9my6uLMfp+WLQewiez6Qb8A4QWdxfJ4eeO2Fx3Rj7g52cr15ha3tBPPLi3c+mp1NgXmF3PG0/uXQVFjGzXRLwglWGXmjnxJM95WZ+CUVD5zS0VVLrsfdbJnIV/6s1ZRl6mkM71rEK2Up1AtTiXxoCuu7INQ6/Fo4vWw4lHjH/OmhzEMsKFVCG5gt0ksUqEfII78sU2t4HHcYufqLLzq1PsjdMm5ybDjCQ6MIUFth5+eKoHP94a5Juaub0DCRxQ90ZUwfXSZ8918cepgvJJjpFRGIl8xHmjYKLLlJki3jI44836iRof8R7GCOT37FD4VVDP2hEAli04OhU3Aj9+u6zWkKrtMcbJDE0DfLbw1yPLHU3VIKRogs0ms+15RMwrrEIIFYjI8MxDawNcKKNIK/Mix0L40YvV7WDm+5l3hQImHsqUwYLzWYj2apn8EhNk60KEQoSfMqYo1LR7yaEHP38xfpECZO9q8QSCaaMCpnY=
